@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `jesper_hansenberg_dk_db_php_boilerplate`
+-- Database: `uwu_websito_dk_db`
 --
 
 -- --------------------------------------------------------

@@ -1,7 +1,7 @@
 <?php
 
-$remoteSecret = parse_ini_file('../yourSecrets.ini');
-$localSecret = parse_ini_file('../secrets.ini');
+$remoteSecret = parse_ini_file('../../yourSecrets.ini');
+$localSecret = parse_ini_file('../../secrets.ini');
 
 $current = $localSecret;
 

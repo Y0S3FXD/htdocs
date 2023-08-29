@@ -32,7 +32,7 @@
                                    VALUES ('$full_name', '$physical_address', $salutation_id)";
 
         if ($conn->query($insert_membership_query) === TRUE) {
-            echo "New membership record added successfully.<br>";
+            Session::flash('movie-added', 'You have successfully added the movie!');
         } else {
             echo "Error: " . $insert_membership_query . "<br>" . $conn->error;
         }

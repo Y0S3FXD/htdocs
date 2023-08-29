@@ -21,6 +21,11 @@
           <a class="nav-link" href="profile.php">
             <span class="glyphicon glyphicon-user"></span> Profile
           </a>
+          <li class="nav-item">
+          <a class="nav-link" href="movie-rental-system.php">
+            <span class="glyphicon glyphicon-log-out"></span> Movies
+          </a>
+        </li>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">
@@ -30,6 +35,11 @@
       </ul>
     <?php else : ?>
       <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+          <a class="nav-link" href="movies.php">
+            <span class="glyphicon glyphicon-log-out"></span> Movies
+          </a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="register.php">
             <span class="glyphicon glyphicon-user"></span> Register

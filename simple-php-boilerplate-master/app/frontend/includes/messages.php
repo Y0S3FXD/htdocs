@@ -18,3 +18,6 @@ if (Session::exists('register-error')) {
 if (Session::exists('login-success')) {
   echo '<div class="alert alert-success"><strong></strong>' . Session::flash('login-success') . '</div>';
 }
+if (Session::exists('movie-added')) {
+  echo '<div class="alert alert-success"><strong></strong>' . Session::flash('movie Added') . '</div>';
+}
