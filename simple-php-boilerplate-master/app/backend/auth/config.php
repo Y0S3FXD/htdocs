@@ -8,7 +8,7 @@ $current = $localSecret;
 $GLOBALS['config'] = array(
 
     'app' => array(
-        'name'          => 'AppName',
+        'name'          => 'Casper Japenese Boi',
     ),
 
     'mysql' => array(
