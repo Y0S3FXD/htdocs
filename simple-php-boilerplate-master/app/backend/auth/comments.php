@@ -47,7 +47,7 @@ if (Input::get('submit')) {
     var_dump($comment_id);
     $deleted = Comment::DeleteComment($comment_id);
     if ($deleted) {
-        Session::flash('delete-comment-success', 'Comment deleted.');
+        Session::flash('delete-comment-success', 'Comment deleted sheesh.');
     } else {
         Session::flash('delete-comment-error', 'Comment not found or not deleted.');
     }
