@@ -25,11 +25,11 @@ if (Input::exists()) {
                     'comment_id'  => Input::get('comment_id'),
                     'user_id'      => $user->data()->uid,
                     'post_id'    => Input::get('post_id'),
-                    'content'  => Input::get('content')
+                    'content'  => Input::get('comment')
                 ));
 
-                Session::flash('create-post-success', 'Thanks for posting.');
-                Redirect::to('posts.php?id=' . Input::get('post_id'));
+                Session::flash('create-comment-success', 'Thanks for commenting.');
+                Redirect::to('comments.php?post_id=' . Input::get('post_id'));
             } catch (Exception $e) {
                 die($e->getMessage());
             }

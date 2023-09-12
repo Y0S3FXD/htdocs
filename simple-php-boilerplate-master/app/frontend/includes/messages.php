@@ -21,3 +21,6 @@ if (Session::exists('login-success')) {
 if (Session::exists('movie-added')) {
   echo '<div class="alert alert-success"><strong></strong>' . Session::flash('movie Added') . '</div>';
 }
+if (Session::exists('create-comment-success')) {
+  echo '<div class="alert alert-success"><strong></strong>' . Session::flash('create-comment-success') . '</div>';
+}

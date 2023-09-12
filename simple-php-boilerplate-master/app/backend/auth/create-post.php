@@ -17,7 +17,7 @@ if (Input::exists()) {
                 'min' => 2,
                 'max' => 255,
             ),
-        ));
+        )); 
 
         if ($validate->passed()) {
             try {
