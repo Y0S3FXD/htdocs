@@ -6,7 +6,7 @@ participant Database
 
 User -> Server: Check if logged in
 alt Logged in
-    Server -> User: Show post categories
+    Server -> User: Show categories
     User -> Server: View posts in category
     Server -> Database: Retrieve posts
     Database -> Server: Return posts
@@ -21,7 +21,10 @@ alt Logged in
         Server -> Database: Remove post
         Database -> Server: Confirm post removed
         Server -> User: Post deleted
-    else Create comment
+    end
+    User -> Server: View post
+    Server -> User: Display post content
+    alt Create comment
         User -> Server: Create comment
         Server -> Database: Store comment
         Database -> Server: Confirm comment stored
@@ -42,7 +45,7 @@ else Not logged in
         Server -> User: Registered successfully
         note right: Flow continues as if user is logged in
     else Continue as Guest
-        Server -> User: Show post categories
+        Server -> User: Show categories
         User -> Server: View posts
         Server -> Database: Retrieve posts
         Database -> Server: Return posts
