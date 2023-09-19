@@ -1,0 +1,32 @@
+@startuml
+
+left to right direction
+
+actor User
+actor Guest
+
+package "Politician Forum System" {
+    usecase "Check if logged in" as UC1
+    usecase "View categories" as UC2
+    usecase "View posts" as UC3
+    usecase "Create post" as UC4
+    usecase "Delete post" as UC5
+    usecase "Create comment" as UC6
+    usecase "Delete comment" as UC7
+    usecase "Register" as UC8
+    usecase "Logout" as UC9
+
+    User --> UC1
+    User --> UC2
+    User --> UC3
+    User --> UC4
+    User --> UC5
+    User --> UC6
+    User --> UC7
+    User --> UC9
+    Guest --> UC2
+    Guest --> UC3
+    Guest --> UC8
+}
+
+@enduml
