@@ -1,0 +1,49 @@
+@startuml
+
+start
+
+:Check if user is logged in;
+
+if (Logged in?) then (yes)
+    :View post categories;
+    :View posts in category;
+    split
+        :Create post;
+    split again
+        :Delete post;
+    split again
+        :Create comment;
+    split again
+        :Delete comment;
+    end split
+    if (Logout?) then (yes)
+        :Logout;
+        :Close;
+    endif
+else (no)
+    if (Register?) then (yes)
+        :Register;
+        :View post categories;
+        :View posts in category;
+        split
+            :Create post;
+        split again
+            :Delete post;
+        split again
+            :Create comment;
+        split again
+            :Delete comment;
+        end split
+        if (Logout?) then (yes)
+            :Logout;
+            :Close;
+        endif
+    else (Continue as Guest)
+        :View post categories;
+        :View posts in category;
+        stop
+    endif
+endif
+
+stop
+@enduml

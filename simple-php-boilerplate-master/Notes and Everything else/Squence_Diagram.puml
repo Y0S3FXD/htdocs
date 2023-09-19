@@ -1,0 +1,55 @@
+@startuml
+
+participant User
+participant Server
+participant Database
+
+User -> Server: Check if logged in
+alt Logged in
+    Server -> User: Show post categories
+    User -> Server: View posts in category
+    Server -> Database: Retrieve posts
+    Database -> Server: Return posts
+    Server -> User: Display posts
+    alt Create post
+        User -> Server: Create post
+        Server -> Database: Store post
+        Database -> Server: Confirm post stored
+        Server -> User: Post created
+    else Delete post
+        User -> Server: Delete post
+        Server -> Database: Remove post
+        Database -> Server: Confirm post removed
+        Server -> User: Post deleted
+    else Create comment
+        User -> Server: Create comment
+        Server -> Database: Store comment
+        Database -> Server: Confirm comment stored
+        Server -> User: Comment created
+    else Delete comment
+        User -> Server: Delete comment
+        Server -> Database: Remove comment
+        Database -> Server: Confirm comment removed
+        Server -> User: Comment deleted
+    end
+    User -> Server: Logout
+    Server -> User: Logged out
+else Not logged in
+    alt Register
+        User -> Server: Register
+        Server -> Database: Store user data
+        Database -> Server: Confirm user registered
+        Server -> User: Registered successfully
+        note right: Flow continues as if user is logged in
+    else Continue as Guest
+        Server -> User: Show post categories
+        User -> Server: View posts
+        Server -> Database: Retrieve posts
+        Database -> Server: Return posts
+        Server -> User: Display posts
+    end
+end
+
+User -> Server: End of interaction
+
+@enduml
