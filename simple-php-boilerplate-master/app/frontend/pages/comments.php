@@ -32,6 +32,9 @@
 
                 ?>
                 <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
+                <?php
+                            echo "Today is " . date("d/m/Y") . "<br>";
+                            ?>
                     <h2>Comment</h2>
                     <form action="" method="post">
                         <div class="form-group">
