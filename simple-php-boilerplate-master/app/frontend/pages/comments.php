@@ -11,7 +11,7 @@
                     foreach ($comments->results() as $c) {
                         echo '<div class="card">';
                         echo '<div class="card-body">';
-                        echo '<h4 class="card-title">Mit id er ' . $c->user_id . '  </h4>';
+                        echo '<h4 class="card-title">Mit Navn er  ' . $c->username . '  </h4>';
                         echo '<p class="card-text">' . $c->content . '</p>';
 
                         if ($c->user_id === $user->data()->uid) {

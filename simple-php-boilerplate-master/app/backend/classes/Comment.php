@@ -11,7 +11,7 @@ class Comment
 
     public static function getAllComments($post_id)
     {
-        $comments = Database::getInstance()->get('comments', array('post_id', '=', $post_id));
+        $comments = Database::getInstance()->query("SELECT comments.*, users.username FROM comments JOIN users ON comments.user_id = users.uid WHERE post_id = ?", array($post_id));
         //return list of comments
         return $comments;
     }
