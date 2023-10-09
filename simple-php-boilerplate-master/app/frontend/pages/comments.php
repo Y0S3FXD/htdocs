@@ -13,10 +13,15 @@
                         echo '<div class="card-body">';
                         echo '<h4 class="card-title">Mit id er ' . $c->user_id . '  </h4>';
                         echo '<p class="card-text">' . $c->content . '</p>';
-                        echo '<form action="" method="post" name="delete_comment_form">';
-                        echo '<input type="hidden" name="comment_id" value="' . $c->comment_id . '">';
-                        echo '<input type="submit" name="submit" class="submit" value="Delete Comment">';
-                        echo '</form>';
+
+                        if ($c->user_id === $user->data()->uid) {
+                            echo '<form action="" method="post" name="delete_comment_form">';
+                            echo '<input type="hidden" name="comment_id" value="' . $c->comment_id . '">';
+                            echo '<input type="submit" name="submit" class="submit" value="Delete Comment">';
+                            echo '</form>';
+                        }
+
+
 
                         echo '</div>';
                         echo '</div>';
