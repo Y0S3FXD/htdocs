@@ -1,2 +1,0 @@
-AddType application/x-httpd-php81 .php
-php_flag output_buffering on

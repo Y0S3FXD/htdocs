@@ -32,4 +32,8 @@ class Post
             return $post->first();
         }
     }
+    public static function deletePost($post_id)
+    {
+        return Database::getInstance()->delete('posts', array('post_id', '=', $post_id));
+    }
 }
