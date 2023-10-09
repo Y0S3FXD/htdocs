@@ -44,15 +44,23 @@ if (Input::exists()) {
 }
 if (Input::get('submit')) {
     $comment_id = Input::get('comment_id');
-    var_dump($comment_id);
-    $deleted = Comment::DeleteComment($comment_id);
-    if ($deleted) {
-        Session::flash('delete-comment-success', 'Comment deleted sheesh.');
+    $comment = Comment::getCommentById($comment_id);
+
+    if ($comment && $comment->user_id === $user->data()->uid) {
+        // User owns the comment, allow deletion
+        $deleted = Comment::deleteComment($comment_id);
+        if ($deleted) {
+            Session::flash('delete-comment-success', 'Comment deleted.');
+        } else {
+            Session::flash('delete-comment-error', 'Comment not found or not deleted.');
+        }
     } else {
-        Session::flash('delete-comment-error', 'Comment not found or not deleted.');
+        // User does not own the comment, deny deletion
+        Session::flash('delete-comment-error', 'You are not allowed to delete this comment.');
     }
+
     Redirect::to('comments.php?post_id=' . Input::get('post_id'));
-} 
+}
 
 // Display success message if it exists
 if (Session::exists('delete-comment-success')) {
