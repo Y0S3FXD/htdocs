@@ -2,8 +2,8 @@
     <div class="row">
         <div class="jumbotron text-center" style="margin-bottom:0">
             <h1>Post title: <?php echo $post->title; ?></h1>
-            <h2>The Comment Section</h1>
-
+            <h2>The Comment Section</h2>
+            <h3> <?php echo $post->created_at; ?></h3>
                 <?php
 
 
@@ -12,6 +12,7 @@
                         echo '<div class="card">';
                         echo '<div class="card-body">';
                         echo '<h4 class="card-title">Mit id er ' . $c->user_id . '  </h4>';
+                        echo '<h5 class="card-title">Comment date: ' . $c->created_at . '</h5>';
                         echo '<p class="card-text">' . $c->content . '</p>';
 
                         if ($c->user_id === $user->data()->uid) {
