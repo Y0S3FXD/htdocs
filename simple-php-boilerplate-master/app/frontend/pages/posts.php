@@ -13,6 +13,12 @@
                     echo '<h4 class="card-title">' . $p->title . '</h4>';
                     echo '<p class="card-text">' . $p->content . '</p>';
                     echo '<a href="comments.php?post_id=' . $p->post_id . '" class="btn btn-primary">View Post</a>';
+                    if ($p->user_id === $user->data()->uid) {
+                    echo '<form action="" method="post" name="delete_post">';
+                    echo '<input type="hidden" name="post_id" value="' . $p->post_id . '">';
+                    echo '<input type="submit" name="delete_post" class="submit" value="Delete post">';
+                    echo '</form>';
+                    }
                     echo '</div>';
                     echo '</div>';
                 }
