@@ -91,6 +91,8 @@ CREATE TABLE `posts` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `posts` ADD `image_path` VARCHAR(255) DEFAULT NULL AFTER `content`;
+
 
 -- --------------------------------------------------------
 
