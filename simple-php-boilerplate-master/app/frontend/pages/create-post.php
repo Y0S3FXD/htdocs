@@ -1,6 +1,8 @@
+
 <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
     <h2>Create Post Form</h2>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
+        
         <div class="form-group">
             <label for="name">Title :</label>
             <input type="text" class="form-control" id="title" placeholder="Enter name for the post" name="title" value="<?php echo escape(Input::get('title')); ?>">
@@ -9,6 +11,11 @@
             <label for="description">Description :</label>
             <input type="text" class="form-control" id="content" placeholder="Enter a description" name="content" value="<?php echo escape(Input::get('content')); ?>">
         </div>
+        <div class="form-group">
+            <label for="post_image">Upload Image:</label>
+            <input type="file" name="post_image" id="post_image">
+        </div>
+        
         <input type="submit" class="btn-register" value="Create a post">
         <input type="hidden" name="csrf_token" value="<?php echo Token::generate(); ?>">
     </form>

@@ -36,4 +36,45 @@ class Post
     {
         return Database::getInstance()->delete('posts', array('post_id', '=', $post_id));
     }
-}
+
+    public static function uploadImageToHostingService($imagepath)
+    {
+        $apikey = '6d207e02198a847aa98d0a2a901485a5';
+
+        $apiurl = 'https://freeimage.host/api/1/upload';
+
+        $requestData = [
+            'key' => $apikey,
+            'source' => $imagepath,
+            'format' => 'json',
+        ];
+
+        if (file_exists($imagepath)&& is_readable($imagepath)){
+            $requestData['source'] = new CURLFile($imagepath);
+        } else {
+            return false;
+        }
+
+        $ch  = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiurl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $requestData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+        // Execute the cURL request
+        $response = curl_exec($ch);
+    
+        // Close cURL session
+        curl_close($ch);
+    
+        // Parse the JSON response
+        $responseData = json_decode($response, true);
+    
+        // Check if the response contains an image URL
+        if (isset($responseData['image']['url'])) {
+            return ['url' => $responseData['image']['url']];
+        } else {
+            return false; // Image upload failed or no URL in response
+        }
+    }
+    }
