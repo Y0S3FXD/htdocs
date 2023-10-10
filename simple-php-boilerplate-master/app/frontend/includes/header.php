@@ -18,14 +18,15 @@
   <style>
     .fakeimg {
       height: 200px;
-      background: #aaa;
+      background: #aaa;    
     }
+    
   </style>
 </head>
 
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
+<div class="jumbotron text-center" style="margin-bottom:0; background-color:white">
   <h1> <?php appName(); ?></h1>
   <p>Resize this responsive page to see the effect!</p>
   <?php if ($user->isLoggedIn()) : ?>
