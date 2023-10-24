@@ -18,17 +18,18 @@
   <style>
     .fakeimg {
       height: 200px;
-      background: #aaa;
+      background: #aaa;    
     }
+    
   </style>
 </head>
 
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
+<div class="jumbotron text-center" style="margin-bottom:0; background-color:white">
   <h1> <?php appName(); ?></h1>
-  <p>Resize this responsive page to see the effect!</p>
+
   <?php if ($user->isLoggedIn()) : ?>
-    <h3 align="right">Hello, <?php echo $user->data()->name; ?> Welcome To php worlds </h3>
+    <h3 align="right">Hej, <?php echo $user->data()->name; ?></h3>
   <?php endif; ?>
 </div>
