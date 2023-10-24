@@ -3,16 +3,20 @@
       <div class="col-sm-4">
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Alle opslag</a>
+            <a class="nav-link active" href="#">Alle emner</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Kategori 1</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Kategori 2</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Kategori 3</a>
+        <?php  if ($channels->count()) {
+                foreach ($channels->results() as $channel) {
+                    echo '<div class="card text-center">';
+                    echo '<div class="card-body">';
+                    echo '<h4 class="card-title text-center">' . $channel->name . '</h4>';
+                    echo '<p class="card-text">' . $channel->description . '</p>';
+                    echo '<a href="posts.php?id=' . $channel->channel_id . '" class="btn btn-primary ">View Channel</a>';
+                    echo '</div>';
+                    echo '</div>';
+                }}
+                ?>
           </li>
         </ul>
         <hr class="d-sm-none">
