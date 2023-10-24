@@ -25,7 +25,8 @@
 
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
+<div class="jumbotron text-center p-3 mb-2 bg-success text-white" style="margin-bottom:p-3 mb-2 bg-success text-white">
+<div class="p-3 mb-2 bg-success text-white"></div>
   <h1> <?php appName(); ?></h1>
   <p>Resize this responsive page to see the effect!</p>
   <?php if ($user->isLoggedIn()) : ?>
