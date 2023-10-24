@@ -21,14 +21,5 @@ class Channel
             return $ret->first();
         }
     }
-    public function deleteComment()
-    {
-        if ($this->isLoggedIn()) {
-            $id = $this->data()->uid;
-        }
-
-        if (!$this->_db->delete('users', array('uid', '=', $id))) {
-            throw new Exception('Unable to update the user.');
-        }
-    }
+    
 }
