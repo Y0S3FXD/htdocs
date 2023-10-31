@@ -9,4 +9,3 @@
 
 
 <?php require_once FRONTEND_INCLUDE . 'footer.php'; ?>
-
